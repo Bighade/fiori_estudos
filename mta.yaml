@@ -26,3 +26,21 @@ modules:
         properties:
           srv-url: ${default-url}
 
+resources:
+  - name: cpapp-uaa
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+       xsappname: cpapp-${space}    #  name + space dependency
+       tenant-mode: dedicated
+       role-collections:
+         - name: 'RiskManager-${space}'
+           description: Manage Risks
+           role-template-references:
+             - $XSAPPNAME.RiskManager
+         - name: 'RiskViewer-${space}'
+           description: View Risks
+           role-template-references:
+             - $XSAPPNAME.RiskViewer        
