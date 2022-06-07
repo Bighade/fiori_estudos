@@ -7,12 +7,16 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^5",
+    "@sap/xssec": "^3.2.13",
     "express": "^4",
     "passport": "^0.6.0"
   },
   "devDependencies": {
     "@sap/ux-specification": "^1.100.3",
     "sqlite3": "^5.0.2"
+  },
+  "engines": {
+     "node": "^16" 
   },
   "scripts": {
     "start": "cds run",
@@ -43,6 +47,10 @@
       "no-console": "off",
       "require-atomic-updates": "off"
     }
+  },
+  "uaa": {
+      "kind": "xsuaa",
+      "credentials": {}
   },
   "sapux": [
     "app/risks",
